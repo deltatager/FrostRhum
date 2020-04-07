@@ -10,6 +10,11 @@
             <e p="Ice.shader" t="Include" />
           </e>
         </e>
+        <e p="ManNeko_Assets" t="Include">
+          <e p="Adventurer Blake" t="Include">
+            <e p="Read Me.txt" t="Include" />
+          </e>
+        </e>
         <e p="Plugins" t="Include">
           <e p="GitHub" t="Include">
             <e p="Editor" t="Include">
