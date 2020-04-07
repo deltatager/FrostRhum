@@ -17,7 +17,15 @@
             <e p="Ice.shader" t="Include" />
           </e>
         </e>
+<<<<<<< HEAD
 >>>>>>> c3e26f0c970bd0379361f47b411bf0595a893d87
+=======
+        <e p="ManNeko_Assets" t="Include">
+          <e p="Adventurer Blake" t="Include">
+            <e p="Read Me.txt" t="Include" />
+          </e>
+        </e>
+>>>>>>> 9a169e61a5865fc47cc7fbbcdfc2f127e091b50d
         <e p="Plugins" t="Include">
           <e p="GitHub" t="Include">
             <e p="Editor" t="Include">

@@ -20,6 +20,10 @@
       <Path>.git</Path>
       <Path>.idea</Path>
       <Path>Library</Path>
+<<<<<<< HEAD
+=======
+      <Path>Logs</Path>
+>>>>>>> 9a169e61a5865fc47cc7fbbcdfc2f127e091b50d
       <Path>Temp</Path>
       <Path>obj</Path>
     </explicitExcludes>
