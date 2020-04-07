@@ -7,16 +7,23 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
 
-    private NavMeshAgent agent;
+    private Animator _anim;
+    public NavMeshAgent navMeshAgent;
+    private static readonly int PlayerSpeed = Animator.StringToHash("PlayerSpeed");
     
-    // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        _anim = GetComponent<Animator>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.updateRotation = false;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
+        _anim.SetFloat(PlayerSpeed, navMeshAgent.velocity.magnitude);
+        if (navMeshAgent.velocity.sqrMagnitude > Mathf.Epsilon)
+        {
+            transform.rotation = Quaternion.LookRotation(navMeshAgent.velocity.normalized);
+        }
     }
 }
