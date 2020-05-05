@@ -57,7 +57,6 @@
           <e p="DoorScript.cs" t="Include" />
           <e p="FireFlicker.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
-          <e p="MainMenu.cs" t="Include" />
           <e p="MouseManager.cs" t="Include" />
           <e p="OnHover.cs" t="Include" />
           <e p="PauseMenu.cs" t="Include" />
