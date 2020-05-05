@@ -5,6 +5,7 @@ using UnityEngine.Serialization;
 public class UIManager : Singleton<UIManager>
 {
     [SerializeField] private PauseMenu pauseMenu;
+    [SerializeField] private InventoryMenu inventory;
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -14,5 +15,6 @@ public class UIManager : Singleton<UIManager>
     private void HandleGameStateChange(GameManager.GameState current, GameManager.GameState previous)
     {
         pauseMenu.gameObject.SetActive(current == GameManager.GameState.Pause);
+        inventory.gameObject.SetActive(current == GameManager.GameState.Inventory);
     }
 }

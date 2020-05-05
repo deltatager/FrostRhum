@@ -8,15 +8,12 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Button ResumeButton;
     [SerializeField] private Button RestartButton;
     [SerializeField] private Button QuitButton;
-    // Start is called before the first frame update
+    
     void Start()
     {
         ResumeButton.onClick.AddListener(HandleResumeClicked);
         RestartButton.onClick.AddListener(HandleRestartClicked);
         QuitButton.onClick.AddListener(HandleQuitClicked);
-        
-        
-        
     }
 
     private void HandleQuitClicked()
@@ -33,12 +30,4 @@ public class PauseMenu : MonoBehaviour
     {
         GameManager.Instance.TogglePause();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    
 }

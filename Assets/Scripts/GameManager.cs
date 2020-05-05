@@ -15,9 +15,9 @@ public class GameManager : Singleton<GameManager>
 {
     public enum GameState
     {
-        Pregame,
         Running,
-        Pause
+        Pause,
+        Inventory
     }
 
     private GameState _currentGameState = GameState.Running;
@@ -35,25 +35,24 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        if (_currentGameState != GameState.Pregame)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
                 TogglePause();
-        }
+        if (Input.GetKeyDown(KeyCode.I))
+            ToggleInventory();
+        
+        
     }
 
     public void LoadLevel(string levelName)
     {
-        AsyncOperation ao = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Single);
-        if (ao == null)
-        {
-            Debug.Log("Unable to load level: " + levelName);
-            return;
-        }
-
-        ao.completed += OnLoadOperationComplete;
-        _loadOperations.Add(ao);
-        _currentLevelName = levelName;
+        AsyncOperation ao = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
+       if (ao==null)
+       {
+           Debug.Log("Unable to load level: "+levelName);
+       }
+       ao.completed += OnLoadOperationComplete;
+       _loadOperations.Add(ao);
+       _currentLevelName = levelName;
     }
 
     void OnLoadOperationComplete(AsyncOperation ao)
@@ -66,7 +65,7 @@ public class GameManager : Singleton<GameManager>
                 UpdateGameState(GameState.Running);
             }
         }
-
+            
         Debug.Log("Load completed");
     }
 
@@ -88,26 +87,78 @@ public class GameManager : Singleton<GameManager>
     }
 
     void UpdateGameState(GameState gameState)
-    {
-        GameState previous = _currentGameState;
-        _currentGameState = gameState;
-        switch (_currentGameState)
-        {
-            case GameState.Pregame:
-                Time.timeScale = 1.0f;
-                break;
-            case GameState.Running:
-                Time.timeScale = 1.0f;
-                break;
-            case GameState.Pause:
-                Time.timeScale = 0.0f;
-                break;
-            default:
-                break;
-        }
+     {
+         GameState previous = _currentGameState;
+         _currentGameState = gameState;
+         switch(_currentGameState)
+         {
+             case GameState.Pregame:
+                 Time.timeScale = 1.0f;
+                 break;
+             case GameState.Running:
+                 Time.timeScale = 1.0f;
+                 break;
+             case GameState.Pause:
+                 Time.timeScale = 0.0f;
+                 break;
+             default:
+                 break;
+             
+         }
+         
+         onGameStateChange.Invoke(_currentGameState, previous);
+     }
+     public GameState CurrentGameState
+     {
+         get
+         {
+             return _currentGameState;
+         }
+         private set
+         {
+             _currentGameState = value;
+         }
+     }
 
-        onGameStateChange.Invoke(_currentGameState, previous);
-    }
+     public void RestartGame()
+     {
+         
+         
+     }
+     
+     public void Quit()
+     {
+         Application.Quit();
+     }
+     
+     
+     public void TogglePause()
+     {
+         switch (_currentGameState)
+         {
+             case GameState.Running:
+                 UpdateGameState(GameState.Pause);
+                 break;
+             case GameState.Pause:
+                 UpdateGameState(GameState.Running);
+                 break;
+         }
+     }
+     
+     
+     public void ToggleInventory()
+     {
+         switch (_currentGameState)
+         {
+             case GameState.Running:
+                 UpdateGameState(GameState.Inventory);
+                 break;
+             case GameState.Inventory:
+                 UpdateGameState(GameState.Running);
+                 break;
+         }
+     }
+}
 
     public GameState CurrentGameState
     {
