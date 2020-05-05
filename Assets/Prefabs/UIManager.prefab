@@ -513,9 +513,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3130a1189138e874591fe5f5c3e54ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainMenu: {fileID: 0}
-  _pauseMenu: {fileID: 2360310283212579194}
-  _camera: {fileID: 20757272912230474}
+  pauseMenu: {fileID: 2360310283212579194}
+  dummyCamera: {fileID: 20757272912230474}
 --- !u!1 &1617907883662474
 GameObject:
   m_ObjectHideFlags: 0
