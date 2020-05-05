@@ -5,61 +5,38 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
-[System.Serializable] public class EventGameState : UnityEvent<GameManager.GameState, GameManager.GameState>{}
+[Serializable] public class EventGameState : UnityEvent<GameManager.GameState, GameManager.GameState>{}
 
 
 public class GameManager : Singleton<GameManager>
 {
     public enum GameState
     {
-        Pregame,
         Running,
         Pause
     }
-    private GameState _currentGameState = GameState.Pregame;
-    public EventGameState onChange;
+    private GameState _currentGameState = GameState.Running;
+    [FormerlySerializedAs("onChange")] public EventGameState onGameStateChange;
     
-    private string currentLevelName = string.Empty;
+    private string _currentLevelName = "Room1";
     private List<AsyncOperation> _loadOperations;
 
-    [SerializeField] private GameObject[] _systemPrefabs;
-    private List<GameObject> _instancedSystemPrefabs;
-    
-    private GameManager _instance;
-    
     void Start()
     {
-        
         DontDestroyOnLoad(gameObject);
         _loadOperations = new List<AsyncOperation>();
-        InstanciateSystemPrefabs();
     }
 
 
     private void Update()
     {
-        if (_currentGameState != GameState.Pregame)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
                 TogglePause();
-        }
+        
     }
-
-    private void Awake()
-    {
-        if (_instance == null)
-        {
-            _instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            Debug.Log("HEY MAN");
-        }
-    }
-
-
+    
     public void LoadLevel(string levelName)
     {
         AsyncOperation ao = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
@@ -69,7 +46,7 @@ public class GameManager : Singleton<GameManager>
        }
        ao.completed += OnLoadOperationComplete;
        _loadOperations.Add(ao);
-       currentLevelName = levelName;
+       _currentLevelName = levelName;
     }
 
     void OnLoadOperationComplete(AsyncOperation ao)
@@ -103,35 +80,12 @@ public class GameManager : Singleton<GameManager>
         Debug.Log("Unload completed");
     }
 
-
-     void InstanciateSystemPrefabs()
-    {
-        _instancedSystemPrefabs = new List<GameObject>();
-        foreach (GameObject go in _systemPrefabs)
-            _instancedSystemPrefabs.Add(Instantiate(go));
-        
-    }
-
-     protected void OnDestroy()
-     {
-         base.OnDestroy();
-         foreach (GameObject go in _instancedSystemPrefabs)
-         {
-             Destroy(go);
-         }
-         _instancedSystemPrefabs.Clear();
-     }
-
-
-     void UpdateGameState(GameState gameState)
+    void UpdateGameState(GameState gameState)
      {
          GameState previous = _currentGameState;
          _currentGameState = gameState;
          switch(_currentGameState)
          {
-             case GameState.Pregame:
-                 Time.timeScale = 1.0f;
-                 break;
              case GameState.Running:
                  Time.timeScale = 1.0f;
                  break;
@@ -143,26 +97,14 @@ public class GameManager : Singleton<GameManager>
              
          }
          
-         onChange.Invoke(_currentGameState, previous);
+         onGameStateChange.Invoke(_currentGameState, previous);
      }
      public GameState CurrentGameState
      {
-         get
-         {
-             return _currentGameState;
-         }
-         private set
-         {
-             _currentGameState = value;
-         }
+         get => _currentGameState;
+         private set => _currentGameState = value;
      }
 
-     public void StartGame()
-     {
-         
-         LoadLevel("SampleScene");
-     }
-     
      public void RestartGame()
      {
          
@@ -178,14 +120,14 @@ public class GameManager : Singleton<GameManager>
      
      public void TogglePause()
      {
-         if (_currentGameState == GameState.Running)
+         switch (_currentGameState)
          {
-             UpdateGameState(GameState.Pause);
-         } else if (_currentGameState == GameState.Pause)
-         {
-             UpdateGameState(GameState.Running);
+             case GameState.Running:
+                 UpdateGameState(GameState.Pause);
+                 break;
+             case GameState.Pause:
+                 UpdateGameState(GameState.Running);
+                 break;
          }
-         
-         
      }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MainMenu : MonoBehaviour
@@ -15,7 +13,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Instance.onChange.AddListener(HandleGameStateChanged);
+        GameManager.Instance.onGameStateChange.AddListener(HandleGameStateChanged);
     }
 
     private void HandleGameStateChanged(GameManager.GameState currentGameState, GameManager.GameState previousGameState)
@@ -24,12 +22,11 @@ public class MainMenu : MonoBehaviour
         {
             FadeOut();
         }
-        
+
         if (previousGameState == GameManager.GameState.Pregame && currentGameState == GameManager.GameState.Running)
         {
             FadeIn();
         }
-    
     }
 
     public void OnFadeOutComplete()
@@ -57,7 +54,5 @@ public class MainMenu : MonoBehaviour
         _mainMenuAnimator.Stop();
         _mainMenuAnimator.clip = _fadeOutAnimation;
         _mainMenuAnimator.Play();
-
-
     }
 }
