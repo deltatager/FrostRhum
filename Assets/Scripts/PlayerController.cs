@@ -12,12 +12,13 @@ public class PlayerController : MonoBehaviour
     private static readonly int PlayerSpeed = Animator.StringToHash("PlayerSpeed");
     
     void Start()
-    {
+    {    
+        MouseManager.Instance.onClickEnvironment.AddListener(HandleMouseClickEvent);
         _anim = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
     }
-    
+
     void Update()
     {
         _anim.SetFloat(PlayerSpeed, navMeshAgent.velocity.magnitude);
@@ -25,5 +26,10 @@ public class PlayerController : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(navMeshAgent.velocity.normalized);
         }
+    }
+    
+    private void HandleMouseClickEvent(Vector3 arg0)
+    {
+        
     }
 }
