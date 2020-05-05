@@ -3,20 +3,15 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class MouseManager : Singleton<MouseManager>
-{    
-    [SerializeField]
-    private LayerMask clickableLayer;
-    [SerializeField]
-    private Texture2D pointer; //Normal Pointer
-    [SerializeField]
-    private Texture2D target; //Cursor for clickable objects like the world
-    [SerializeField]
-    private Texture2D doorway; //Cursor for doorways
-    [SerializeField]
-    private Texture2D item; //Cursor combat actions
+{
+    [SerializeField] private LayerMask clickableLayer;
+    [SerializeField] private Texture2D pointer; //Normal Pointer
+    [SerializeField] private Texture2D target; //Cursor for clickable objects like the world
+    [SerializeField] private Texture2D doorway; //Cursor for doorways
+    [SerializeField] private Texture2D item; //Cursor combat actions
 
     private GameObject _player;
-    
+
     public ClickEvent onClickEnvironment;
     public ClickEvent playerDestination;
 
@@ -35,7 +30,6 @@ public class MouseManager : Singleton<MouseManager>
             {
                 Cursor.SetCursor(doorway, new Vector2(16, 16), CursorMode.Auto);
             }
-
             else if (hit.collider.gameObject.CompareTag("Item"))
             {
                 Cursor.SetCursor(item, new Vector2(16, 16), CursorMode.Auto);
@@ -47,10 +41,16 @@ public class MouseManager : Singleton<MouseManager>
             
             if (Input.GetMouseButtonDown(0))
             {
-                onClickEnvironment.Invoke(hit.collider.gameObject.transform.position);
+                if (Vector3.Distance(hit.point, _player.transform.position) < 1)
+                {
+                    onClickEnvironment.Invoke(hit.collider.gameObject.transform.position);
+                }
+                else
+                {
+                    playerDestination.Invoke(hit.point);
+                }
             }
         }
-
         else
         {
             Cursor.SetCursor(pointer, Vector2.zero, CursorMode.Auto);
