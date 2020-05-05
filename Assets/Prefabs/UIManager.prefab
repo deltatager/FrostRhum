@@ -512,8 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3130a1189138e874591fe5f5c3e54ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
-  dummyCamera: {fileID: 0}
+  pauseMenu: {fileID: 2360310283212579194}
 --- !u!1 &1617907883662474
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,7 +605,6 @@ GameObject:
   - component: {fileID: 114869358023239108}
   - component: {fileID: 114161082283702470}
   - component: {fileID: 2154537601080685916}
-  - component: {fileID: 4642854366384218430}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -730,7 +728,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4642854366384218430}
+        - m_Target: {fileID: 0}
           m_MethodName: OnHoverMethod
           m_Mode: 1
           m_Arguments:
@@ -741,18 +739,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &4642854366384218430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1690569417852610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4aab732076580ac4e95cba35951a3c8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1716780516319332
 GameObject:
   m_ObjectHideFlags: 0

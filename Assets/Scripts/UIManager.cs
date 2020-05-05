@@ -7,6 +7,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private PauseMenu pauseMenu;
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
         GameManager.Instance.onGameStateChange.AddListener(HandleGameStateChange);
     }
 
