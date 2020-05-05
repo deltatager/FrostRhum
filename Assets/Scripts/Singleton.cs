@@ -1,33 +1,36 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
-    public static T Instance { get; private set; }
+    // Start is called before the first frame update
+    private static T _instance;
 
-    public static bool IsInitialized => Instance != null;
+    public static T Instance
+    {
+        get { return _instance; }
+    }
 
     protected virtual void Awake()
     {
-        if (Instance != null)
+        if (_instance != null)
         {
-            Debug.Log("(Singleton<" + GetType() + ">) Tried to instantiate second instance");
-            Destroy(gameObject);
+            Debug.Log("Essaie instance");
         }
         else
         {
-            Instance = (T) this;
+            _instance = (T) this;
         }
     }
 
+
     protected virtual void OnDestroy()
     {
-        if (Instance == this)
+        if (_instance == this)
         {
-            Instance = null;
+            _instance = null;
         }
     }
 }
