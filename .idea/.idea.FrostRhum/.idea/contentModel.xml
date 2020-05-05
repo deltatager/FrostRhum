@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Isa-L\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Isa-L\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_FrostRhum.-128206666.00" t="ExcludeRecursive" />
-    <e p="D:\School\Session 4\Simulation\Travaux\FrostRhum" t="IncludeRecursive">
+    <e p="C:\unity\FrostRhum" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -44,11 +42,6 @@
             </e>
           </e>
         </e>
-        <e p="ManNeko_Assets" t="Include">
-          <e p="Adventurer Blake" t="Include">
-            <e p="Read Me.txt" t="Include" />
-          </e>
-        </e>
         <e p="Plugins" t="Include">
           <e p="GitHub" t="Include">
             <e p="Editor" t="Include">
@@ -60,13 +53,18 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="CustomEvent.cs" t="Include" />
           <e p="DoorScript.cs" t="Include" />
           <e p="FireFlicker.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
+          <e p="MainMenu.cs" t="Include" />
           <e p="MouseManager.cs" t="Include" />
+          <e p="OnHover.cs" t="Include" />
+          <e p="PauseMenu.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="ScrollScript.cs" t="Include" />
           <e p="Singleton.cs" t="Include" />
+          <e p="UIManager.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
@@ -102,10 +100,7 @@
       <e p="Packages" t="ExcludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
-<<<<<<< HEAD
-=======
-    <e p="C:\Users\simon\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\simon\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_FrostRhum.977032918.00" t="ExcludeRecursive" />
->>>>>>> d8d02bbab55a13e316159982b54051687e7bbcd3
+    <e p="C:\Users\simon\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\simon\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_FrostRhum.977032918.00" t="ExcludeRecursive" />
   </component>
 </project>
