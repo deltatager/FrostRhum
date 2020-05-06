@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class MouseManager : Singleton<MouseManager>
 {
@@ -9,18 +11,24 @@ public class MouseManager : Singleton<MouseManager>
     [SerializeField] private Texture2D target; //Cursor for clickable objects like the world
     [SerializeField] private Texture2D doorway; //Cursor for doorways
     [SerializeField] private Texture2D item; //Cursor combat actions
-
+    [SerializeField] private float interactionDistance;
+    
     private GameObject _player;
 
     public ClickEvent onClickEnvironment;
-    public ClickEvent playerDestination;
+    
 
     protected override void Awake()
     {
         base.Awake();
-        _player = GameObject.FindGameObjectWithTag("Player");
+        DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += (arg0, mode) =>
+        {
+            Debug.Log("loaded " + arg0.name);
+            _player = GameObject.FindGameObjectWithTag("Player");
+        };
     }
-
+    
 
     void Update()
     {
@@ -41,13 +49,14 @@ public class MouseManager : Singleton<MouseManager>
             
             if (Input.GetMouseButtonDown(0))
             {
-                if (Vector3.Distance(hit.point, _player.transform.position) < 1)
+                interactionDistance = 1;
+                if (Vector3.Distance(hit.point, _player.transform.position) < interactionDistance)
                 {
                     onClickEnvironment.Invoke(hit.collider.gameObject.transform.position);
                 }
                 else
                 {
-                    playerDestination.Invoke(hit.point);
+                    _player.GetComponent<NavMeshAgent>().destination = hit.point;
                 }
             }
         }

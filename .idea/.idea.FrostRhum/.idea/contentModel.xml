@@ -6,6 +6,9 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="AssetStore" t="Include">
+          <e p="Allen_Keys" t="Include">
+            <e p="README_Import_to_2018-HDRP.txt" t="Include" />
+          </e>
           <e p="AN Interactive Physical Door Pack" t="Include">
             <e p="Scripts" t="Include">
               <e p="AN_Button.cs" t="Include" />
@@ -41,6 +44,15 @@
               <e p="Read Me.txt" t="Include" />
             </e>
           </e>
+          <e p="Workplace Tools" t="Include">
+            <e p="Readme.txt" t="Include" />
+          </e>
+          <e p="Wrench" t="Include">
+            <e p="Shaders" t="Include">
+              <e p="Shader_DX11.shader" t="Include" />
+              <e p="Shader_DX9.shader" t="Include" />
+            </e>
+          </e>
         </e>
         <e p="Plugins" t="Include">
           <e p="GitHub" t="Include">
@@ -64,6 +76,7 @@
           <e p="Portal.cs" t="Include" />
           <e p="ScrollScript.cs" t="Include" />
           <e p="Singleton.cs" t="Include" />
+          <e p="Teleporter.cs" t="Include" />
           <e p="UIManager.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">

@@ -18,7 +18,7 @@ public class FireFlicker : MonoBehaviour
     {
         if (Random.value > 0.97f)
         {
-            _light.intensity = Random.Range(0.85f, 1);
+            _light.intensity = Random.Range(0.7f, 3);
         }
     }
 }
