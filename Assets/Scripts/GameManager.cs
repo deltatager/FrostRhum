@@ -45,10 +45,11 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadLevel(string levelName)
     {
-        AsyncOperation ao = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
+        AsyncOperation ao = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Single);
        if (ao==null)
        {
            Debug.Log("Unable to load level: "+levelName);
+           return;
        }
        ao.completed += OnLoadOperationComplete;
        _loadOperations.Add(ao);
@@ -69,58 +70,30 @@ public class GameManager : Singleton<GameManager>
         Debug.Log("Load completed");
     }
 
-
-    public void UnloadLevel(string levelName)
-    {
-        AsyncOperation ao = SceneManager.UnloadSceneAsync(levelName);
-        if (ao == null)
-        {
-            Debug.Log("Unable to unload level: " + levelName);
-        }
-
-        ao.completed += OnUnloadOperationComplete;
-    }
-
-    void OnUnloadOperationComplete(AsyncOperation ao)
-    {
-        Debug.Log("Unload completed");
-    }
-
-    void UpdateGameState(GameState gameState)
+    private void UpdateGameState(GameState gameState)
      {
-         GameState previous = _currentGameState;
+         var previous = _currentGameState;
          _currentGameState = gameState;
          switch(_currentGameState)
          {
-             case GameState.Pregame:
-                 Time.timeScale = 1.0f;
-                 break;
              case GameState.Running:
                  Time.timeScale = 1.0f;
                  break;
              case GameState.Pause:
                  Time.timeScale = 0.0f;
                  break;
-             default:
+             case GameState.Inventory:
+                 Time.timeScale = 0.0f;
                  break;
-             
+
+             default:
+                 throw new ArgumentOutOfRangeException(nameof(gameState));
          }
          
          onGameStateChange.Invoke(_currentGameState, previous);
      }
-     public GameState CurrentGameState
-     {
-         get
-         {
-             return _currentGameState;
-         }
-         private set
-         {
-             _currentGameState = value;
-         }
-     }
 
-     public void RestartGame()
+    public void RestartGame()
      {
          
          
@@ -158,33 +131,4 @@ public class GameManager : Singleton<GameManager>
                  break;
          }
      }
-}
-
-    public GameState CurrentGameState
-    {
-        get { return _currentGameState; }
-        private set { _currentGameState = value; }
-    }
-
-    public void RestartGame()
-    {
-    }
-
-    public void Quit()
-    {
-        Application.Quit();
-    }
-
-
-    public void TogglePause()
-    {
-        if (_currentGameState == GameState.Running)
-        {
-            UpdateGameState(GameState.Pause);
-        }
-        else if (_currentGameState == GameState.Pause)
-        {
-            UpdateGameState(GameState.Running);
-        }
-    }
 }
