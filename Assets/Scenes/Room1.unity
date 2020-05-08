@@ -532,7 +532,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-25046
+  m_Name: pb_Mesh-4082
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -695,7 +695,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-25050
+  m_Name: pb_Mesh-4086
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -858,7 +858,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-25048
+  m_Name: pb_Mesh-4084
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6196,7 +6196,7 @@ MonoBehaviour:
   target: {fileID: 2800000, guid: 2cb158dc6c75e8d4881b15ad84a91f37, type: 3}
   doorway: {fileID: 2800000, guid: 9947a5afd6de6204984d335f8095c69a, type: 3}
   item: {fileID: 2800000, guid: 49b7d19fbcad6c347a5b271ac0a3c20e, type: 3}
-  interactionDistance: 0.5
+  interactionDistance: 0
   onClickEnvironment:
     m_PersistentCalls:
       m_Calls: []
@@ -6293,17 +6293,17 @@ PrefabInstance:
     - target: {fileID: 254750132361286171, guid: 02ab070d67830a84a8259e6b38213f24,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 0.0047912598
+      value: -0.20820904
       objectReference: {fileID: 0}
     - target: {fileID: 254750132361286171, guid: 02ab070d67830a84a8259e6b38213f24,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.994606
+      value: 0.8366047
       objectReference: {fileID: 0}
     - target: {fileID: 254750132361286171, guid: 02ab070d67830a84a8259e6b38213f24,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: 1.322834
+      value: 1.3448337
       objectReference: {fileID: 0}
     - target: {fileID: 3922491115640542724, guid: 02ab070d67830a84a8259e6b38213f24,
         type: 3}
