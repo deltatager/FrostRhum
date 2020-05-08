@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354a378e82f9d224d8c66706ecf4f493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isValsve: 0
+  isValve: 0
   ValveSpeed: 1
   isLever: 1
   Locked: 0
@@ -241,4 +241,3 @@ MonoBehaviour:
   max: 90
   min: 0
   speed: 5
-  valveBool: 1
