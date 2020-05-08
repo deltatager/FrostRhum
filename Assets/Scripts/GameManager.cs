@@ -35,7 +35,7 @@ public class GameManager : Singleton<GameManager>
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-                TogglePause();
+            TogglePause();
         if (Input.GetKeyDown(KeyCode.I))
             ToggleInventory();
         
