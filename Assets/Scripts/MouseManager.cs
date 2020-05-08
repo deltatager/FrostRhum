@@ -24,7 +24,7 @@ public class MouseManager : Singleton<MouseManager>
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += (arg0, mode) =>
         {
-            Debug.Log("loaded " + arg0.name);
+            Debug.Log("New scene loaded, re-finding player...");
             _player = GameObject.FindGameObjectWithTag("Player");
         };
     }

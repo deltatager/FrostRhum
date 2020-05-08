@@ -1,26 +1,26 @@
 ﻿using UnityEngine;
 
-public class DoorScript : MonoBehaviour
+public class Door : MonoBehaviour
 {
+    [SerializeField] public bool isOpened = false;
     
-    public bool isOpened = false;
-    [Range(0f, 4f)]
+    [Range(0f, 4f)] 
     [Tooltip("Speed for door opening, degrees per sec")]
-    public float openSpeed = 3f;
-    
-    // Hinge
+    [SerializeField] private float openSpeed = 3f;
+
     private Rigidbody _rbDoor;
     private HingeJoint _hinge;
     private JointLimits _hingeLim;
     private float _currentLim;
 
-    void Start()
+    private void Start()
     {
         _rbDoor = GetComponent<Rigidbody>();
         _hinge = GetComponent<HingeJoint>();
         MouseManager.Instance.onClickEnvironment.AddListener(HandleClickOnDoor);
     }
-    private void FixedUpdate() // door is physical object
+
+    private void FixedUpdate()
     {
         if (isOpened)
         {
@@ -29,12 +29,10 @@ public class DoorScript : MonoBehaviour
         }
         else
         {
-            // currentLim = hinge.angle; // door will closed from current opened angle
             if (_currentLim > 1f)
                 _currentLim -= .5f * openSpeed;
         }
-
-        // using values to door object
+        
         _hingeLim.max = _currentLim;
         _hingeLim.min = -_currentLim;
         _hinge.limits = _hingeLim;

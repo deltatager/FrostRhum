@@ -21,12 +21,11 @@ public class GameManager : Singleton<GameManager>
     }
 
     private GameState _currentGameState = GameState.Running;
-    [FormerlySerializedAs("onChange")] public EventGameState onGameStateChange;
-
-    private string _currentLevelName = "Room1";
+    [SerializeField] public EventGameState onGameStateChange;
+    
     private List<AsyncOperation> _loadOperations;
 
-    void Start()
+    private void Start()
     {
         DontDestroyOnLoad(gameObject);
         _loadOperations = new List<AsyncOperation>();
@@ -53,7 +52,6 @@ public class GameManager : Singleton<GameManager>
        }
        ao.completed += OnLoadOperationComplete;
        _loadOperations.Add(ao);
-       _currentLevelName = levelName;
     }
 
     void OnLoadOperationComplete(AsyncOperation ao)
