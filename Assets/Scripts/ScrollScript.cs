@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class ScrollScript : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject scrollUi;
+    [SerializeField] private GameObject scrollUi;
+    
     void Start()
     {
         MouseManager.Instance.onClickEnvironment.AddListener(HandleClickEvent);
@@ -12,7 +12,7 @@ public class ScrollScript : MonoBehaviour
 
     private void Update()
     {
-        if (scrollUi.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        if (scrollUi.activeSelf && Input.GetKeyDown(KeyCode.Q))
         {
             scrollUi.SetActive(false);
             Cursor.visible = true;

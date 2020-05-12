@@ -68,6 +68,7 @@
           <e p="CustomEvent.cs" t="Include" />
           <e p="Door.cs" t="Include" />
           <e p="FireFlicker.cs" t="Include" />
+          <e p="GameButton.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="InventoryMenu.cs" t="Include" />
           <e p="Lever.cs" t="Include" />

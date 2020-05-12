@@ -49,7 +49,6 @@ public class MouseManager : Singleton<MouseManager>
             
             if (Input.GetMouseButtonDown(0))
             {
-                interactionDistance = 1;
                 if (Vector3.Distance(hit.point, _player.transform.position) < interactionDistance)
                 {
                     onClickEnvironment.Invoke(hit.collider.gameObject.transform.position);
