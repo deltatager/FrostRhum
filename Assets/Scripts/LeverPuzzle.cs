@@ -17,7 +17,7 @@ public class LeverPuzzle : MonoBehaviour
 
     private void OnButtonClickedHandler()
     {
-        door.isOpened = true;
+        door.isOpened = !door.isOpened;
         goodPortal.gameObject.SetActive(levers.TrueForAll(lever => lever.State));
         badPortal.gameObject.SetActive(!levers.TrueForAll(lever => lever.State));
 

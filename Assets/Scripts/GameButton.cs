@@ -17,7 +17,8 @@ public class GameButton : MonoBehaviour
     {
         
         if (!point.Equals(transform.position)) return;
-        _anim.Play();
+        if (_anim != null)
+            _anim.Play();
         buttonClickedEvent.Invoke();
     }
 }
