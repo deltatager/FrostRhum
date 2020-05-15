@@ -65,7 +65,6 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="CustomEvent.cs" t="Include" />
           <e p="Door.cs" t="Include" />
           <e p="FireFlicker.cs" t="Include" />
           <e p="GameButton.cs" t="Include" />

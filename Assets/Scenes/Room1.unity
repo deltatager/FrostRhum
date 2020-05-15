@@ -1137,6 +1137,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sand_Pillar
       objectReference: {fileID: 0}
+    - target: {fileID: 2805218462588943915, guid: 3887213935f5dd045969f1c455c61561,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2805218462588943915, guid: 3887213935f5dd045969f1c455c61561,
+        type: 3}
+      propertyPath: scalingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2805218462588943915, guid: 3887213935f5dd045969f1c455c61561,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2805218462588943915, guid: 3887213935f5dd045969f1c455c61561,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 5.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2805218462985742141, guid: 3887213935f5dd045969f1c455c61561,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3887213935f5dd045969f1c455c61561, type: 3}
 --- !u!1001 &5654152174357229575
@@ -1160,6 +1185,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: 1.322834
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318816809727830880, guid: 02ab070d67830a84a8259e6b38213f24,
+        type: 3}
+      propertyPath: minIntensity
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318816809727830880, guid: 02ab070d67830a84a8259e6b38213f24,
+        type: 3}
+      propertyPath: maxIntensity
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318816809727830880, guid: 02ab070d67830a84a8259e6b38213f24,
+        type: 3}
+      propertyPath: smoothing
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 3922491115640542724, guid: 02ab070d67830a84a8259e6b38213f24,
         type: 3}
@@ -1660,6 +1700,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936159367915284530, guid: 02ab070d67830a84a8259e6b38213f24,
+        type: 3}
+      propertyPath: minIntensity
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936159367915284530, guid: 02ab070d67830a84a8259e6b38213f24,
+        type: 3}
+      propertyPath: maxIntensity
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936159367915284530, guid: 02ab070d67830a84a8259e6b38213f24,
+        type: 3}
+      propertyPath: smoothing
+      value: 26
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02ab070d67830a84a8259e6b38213f24, type: 3}
