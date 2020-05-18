@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] public bool isOpened = false;
+    [SerializeField] public bool scriptOperated;
+    [SerializeField] public bool isOpened ;
     
     [Range(0f, 4f)] 
     [Tooltip("Speed for door opening, degrees per sec")]
@@ -40,9 +42,14 @@ public class Door : MonoBehaviour
 
     private void HandleClickOnDoor(Vector3 clickTarget)
     {
-        if (clickTarget.Equals(transform.position))
+        if (clickTarget.Equals(transform.position) && !scriptOperated)
         {
             isOpened = !isOpened;
         }
+    }
+
+    public void ToggleDoor()
+    {
+        isOpened = !isOpened;
     }
 }

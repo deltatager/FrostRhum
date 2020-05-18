@@ -3,11 +3,13 @@
 public class Lever : MonoBehaviour
 {
     private static readonly int LeverUp = Animator.StringToHash("LeverUp");
+
+    [SerializeField] private bool inverted;
     
     private Animator _anim;
     private bool _state;
     
-    public bool State => _state;
+    public bool State => _state ^ inverted;
 
     private void Start()
     {
