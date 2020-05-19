@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Isa-L\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Isa-L\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_FrostRhum.-128206666.00" t="ExcludeRecursive" />
-    <e p="D:\School\Session 4\Simulation\Travaux\FrostRhum" t="IncludeRecursive">
+    <e p="C:\unity\FrostRhum" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -117,5 +115,7 @@
       <e p="Packages" t="ExcludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
+    <e p="C:\Users\simon\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\simon\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_FrostRhum.977032918.00" t="ExcludeRecursive" />
   </component>
 </project>

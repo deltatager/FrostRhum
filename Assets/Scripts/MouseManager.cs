@@ -51,6 +51,10 @@ public class MouseManager : Singleton<MouseManager>
             {
                 if (Vector3.Distance(hit.point, _player.transform.position) < interactionDistance)
                 {
+                    if (hit.collider.gameObject.CompareTag("PickableItem"))
+                    {
+                        InventoryMenu.Instance.AddObject(hit.collider.gameObject);
+                    }
                     onClickEnvironment.Invoke(hit.collider.gameObject.transform.position);
                 }
                 else
