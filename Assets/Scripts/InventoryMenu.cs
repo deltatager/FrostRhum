@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InventoryMenu : Singleton<InventoryMenu>
@@ -28,7 +29,7 @@ public class InventoryMenu : Singleton<InventoryMenu>
         {
             OpenInventory();
         }
-        if (previous == GameManager.GameState.Running && current == GameManager.GameState.Inventory)
+        if (previous == GameManager.GameState.Inventory && current == GameManager.GameState.Running)
         {
             CloseInventory();
         }
@@ -39,14 +40,19 @@ public class InventoryMenu : Singleton<InventoryMenu>
         Debug.Log("Opening inv");
         for (var i = 0; i < _inventory.Count; i++)
         {
-            Debug.Log(i);
             var slot = slots[i];
-            _instanciatedInventory.Add(Instantiate(_inventory[i], slot.transform.position, Quaternion.identity));
+            var instantiate = Instantiate(_inventory[i], slot.transform.position, Quaternion.identity, slot.transform);
+            _instanciatedInventory.Add(instantiate);
+            _instanciatedInventory[i].transform.localScale *= 100;
+           
+            
         }
+        
     }
 
     private void CloseInventory()
     {
+        Debug.Log("Inventory closed");
         foreach (var instance in _instanciatedInventory)
         {
             Destroy(instance);
@@ -61,6 +67,7 @@ public class InventoryMenu : Singleton<InventoryMenu>
 
     public void AddObject(GameObject obj)
     {
+        Debug.Log("Add succesful");
         _inventory.Add(obj);
     }
 }

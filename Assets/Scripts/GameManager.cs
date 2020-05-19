@@ -81,7 +81,7 @@ public class GameManager : Singleton<GameManager>
                  Time.timeScale = 0.0f;
                  break;
              case GameState.Inventory:
-                 //Time.timeScale = 0.0f;
+                 Time.timeScale = 0.0f;
                  break;
 
              default:

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5cd2432f0ec4c24385ded30d34ee96d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inventory: []
+  _instanciatedInventory: []
   slots:
   - {fileID: 2760326552782362655}
   - {fileID: 2760326551773821499}
@@ -710,7 +712,7 @@ Canvas:
   m_GameObject: {fileID: 8475534682060908154}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -808,7 +810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 8475534682600646815}
-  inventory: {fileID: 0}
+  inventoryMenu: {fileID: 0}
 --- !u!1 &8475534682600646880
 GameObject:
   m_ObjectHideFlags: 0

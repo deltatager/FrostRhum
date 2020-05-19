@@ -330,6 +330,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8475534682060908148, guid: 54c97bc568a963f4d945c01fa1a75f19,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 963194227}
     - target: {fileID: 8475534682060908153, guid: 54c97bc568a963f4d945c01fa1a75f19,
         type: 3}
       propertyPath: inventory
@@ -1402,6 +1407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inventory: []
+  _instanciatedInventory: []
   slots:
   - {fileID: 311084244}
   - {fileID: 1456226920}
