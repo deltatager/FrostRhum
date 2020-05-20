@@ -1620,6 +1620,7 @@ MonoBehaviour:
   - {fileID: 1383757712}
   - {fileID: 1029351842}
   - {fileID: 869979197}
+  animation: {fileID: 9100000, guid: 4a330acd3f38f034ab6fda00a9516534, type: 2}
 --- !u!4 &1074328238
 Transform:
   m_ObjectHideFlags: 0

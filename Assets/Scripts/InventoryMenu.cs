@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class InventoryMenu : Singleton<InventoryMenu>
@@ -13,7 +14,9 @@ public class InventoryMenu : Singleton<InventoryMenu>
     
     [SerializeField]
     private List<GameObject> slots;
-    
+
+    [SerializeField] private AnimatorController animation;
+    //[SerializeField] private AnimationClip animation;
 
     protected override void Awake() {
         base.Awake();
@@ -42,10 +45,13 @@ public class InventoryMenu : Singleton<InventoryMenu>
         for (var i = 0; i < _inventory.Count; i++)
         {
             var slot = slots[i];
-            var instantiate = Instantiate(_inventory[i], slot.transform.position, Quaternion.identity, slot.transform);
+            var instantiate = Instantiate(_inventory[i],  slot.transform.position, Quaternion.identity, slot.transform);
+            instantiate.AddComponent<Animator>();
+            instantiate.GetComponent<Animator>().runtimeAnimatorController = animation;
             _instanciatedInventory.Add(instantiate);
             _instanciatedInventory[i].transform.localScale *= 100;
             
+
         }
         
     }
