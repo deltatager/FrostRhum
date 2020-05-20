@@ -71,9 +71,15 @@ public class InventoryMenu : Singleton<InventoryMenu>
         return _inventory.Remove(expected);
     }
 
+    public bool ContainsObject(GameObject expected)
+    {
+        return _inventory.Contains(expected);
+    }
+
     public void AddObject(GameObject obj)
     {
-        Debug.Log("Add succesful");
         _inventory.Add(obj);
+        //Out of sight out of mind
+        obj.transform.Translate(Vector3.one * -1000);
     }
 }
