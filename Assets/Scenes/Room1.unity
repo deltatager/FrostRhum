@@ -1690,8 +1690,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Bienvenue dans le temple de FrostRhum!\n\nCliquer au sol pour se d\xE9placer\nLe
-    curseur change lorsqu'un objet est interactible\nCliquer pour utiliser\n<Q> pour
-    fermer ce dialogue"
+    curseur change lorsqu'un objet est interactible\nCliquer pour utiliser\nI pour
+    ouvrir/fermer l'inventaire\nEsc pour pause\nQ pour fermer ce dialogue"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c60e6aceb152caf42aa4c8bf6447e53a, type: 2}
   m_sharedMaterial: {fileID: -7217905410728807972, guid: c60e6aceb152caf42aa4c8bf6447e53a,
@@ -1720,8 +1720,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 34
-  m_fontSizeBase: 34
+  m_fontSize: 25.5
+  m_fontSizeBase: 25.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1761,12 +1761,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1084087305}
-    characterCount: 94
+    characterCount: 173
     spriteCount: 0
-    spaceCount: 17
-    wordCount: 17
+    spaceCount: 28
+    wordCount: 27
     linkCount: 0
-    lineCount: 6
+    lineCount: 8
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

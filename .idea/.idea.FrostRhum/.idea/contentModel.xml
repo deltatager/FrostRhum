@@ -70,6 +70,7 @@
           <e p="GameButton.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="InventoryMenu.cs" t="Include" />
+          <e p="KeyDoor.cs" t="Include" />
           <e p="Lever.cs" t="Include" />
           <e p="LeverPuzzle.cs" t="Include" />
           <e p="MouseManager.cs" t="Include" />

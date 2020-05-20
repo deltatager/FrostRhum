@@ -11,6 +11,7 @@ public class Portal : MonoBehaviour
         {
             if (sceneToLoadName == "End")
             {
+                Debug.Log("Quitting");
                 Application.Quit();
             }
             else

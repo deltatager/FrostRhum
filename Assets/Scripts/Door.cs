@@ -16,7 +16,7 @@ public class Door : MonoBehaviour
     private JointLimits _hingeLim;
     private float _currentLim;
 
-    private void Start()
+    protected void Start()
     {
         _audioSource = GetComponent<AudioSource>();
         _rbDoor = GetComponent<Rigidbody>();
@@ -51,7 +51,7 @@ public class Door : MonoBehaviour
         }
     }
 
-    public void ToggleDoor()
+    public virtual void ToggleDoor()
     {
         _audioSource.Play();
         isOpened = !isOpened;
