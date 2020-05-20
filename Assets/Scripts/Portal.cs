@@ -12,6 +12,7 @@ public class Portal : MonoBehaviour
             if (sceneToLoadName == "End")
             {
                 Application.Quit();
+                Debug.Log("This is where the application would quit if you were the compiled version");
             }
             else
             {
