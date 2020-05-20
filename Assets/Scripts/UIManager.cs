@@ -7,6 +7,8 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private PauseMenu pauseMenu;
     [SerializeField] private GameObject inventoryMenu;
     
+    
+    
 
     private void Start()
     {

@@ -43,6 +43,7 @@ MonoBehaviour:
   - {fileID: 2760326551827822176}
   - {fileID: 2760326550998422998}
   - {fileID: 2760326550741544424}
+  inventoryAnim: {fileID: 0}
 --- !u!1 &8475534680917116613
 GameObject:
   m_ObjectHideFlags: 0

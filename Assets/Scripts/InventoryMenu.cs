@@ -13,6 +13,7 @@ public class InventoryMenu : Singleton<InventoryMenu>
     
     [SerializeField]
     private List<GameObject> slots;
+    
 
     protected override void Awake() {
         base.Awake();
@@ -44,7 +45,6 @@ public class InventoryMenu : Singleton<InventoryMenu>
             var instantiate = Instantiate(_inventory[i], slot.transform.position, Quaternion.identity, slot.transform);
             _instanciatedInventory.Add(instantiate);
             _instanciatedInventory[i].transform.localScale *= 100;
-           
             
         }
         
