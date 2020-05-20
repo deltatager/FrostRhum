@@ -13,6 +13,7 @@ public class Portal : MonoBehaviour
             {
                 Debug.Log("Quitting");
                 Application.Quit();
+                Debug.Log("This is where the application would quit if you were the compiled version");
             }
             else
             {
