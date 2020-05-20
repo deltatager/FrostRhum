@@ -9,7 +9,15 @@ public class Portal : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameManager.Instance.LoadLevel(sceneToLoadName);
+            if (sceneToLoadName == "End")
+            {
+                Application.Quit();
+            }
+            else
+            {
+                GameManager.Instance.LoadLevel(sceneToLoadName);
+            }
+            
         }
     }
 }
