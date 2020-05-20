@@ -10,6 +10,7 @@ public class Door : MonoBehaviour
     [Tooltip("Speed for door opening, degrees per sec")]
     [SerializeField] private float openSpeed = 3f;
 
+    private AudioSource _audioSource;
     private Rigidbody _rbDoor;
     private HingeJoint _hinge;
     private JointLimits _hingeLim;
@@ -17,6 +18,7 @@ public class Door : MonoBehaviour
 
     private void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         _rbDoor = GetComponent<Rigidbody>();
         _hinge = GetComponent<HingeJoint>();
         MouseManager.Instance.onClickEnvironment.AddListener(HandleClickOnDoor);
@@ -26,7 +28,8 @@ public class Door : MonoBehaviour
     {
         if (isOpened)
         {
-            _currentLim = 85f;
+            if (_currentLim < 85f)
+            _currentLim += .5f * openSpeed;
             _rbDoor.AddRelativeTorque(new Vector3(0, 0, 20f));
         }
         else
@@ -44,12 +47,13 @@ public class Door : MonoBehaviour
     {
         if (clickTarget.Equals(transform.position) && !scriptOperated)
         {
-            isOpened = !isOpened;
+            ToggleDoor();
         }
     }
 
     public void ToggleDoor()
     {
+        _audioSource.Play();
         isOpened = !isOpened;
     }
 }

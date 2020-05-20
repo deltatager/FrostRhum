@@ -4,9 +4,11 @@ using UnityEngine;
 public class ScrollScript : MonoBehaviour
 {
     [SerializeField] private GameObject scrollUi;
+    private AudioSource _audioSource;
     
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         MouseManager.Instance.onClickEnvironment.AddListener(HandleClickEvent);
     }
 
@@ -23,6 +25,7 @@ public class ScrollScript : MonoBehaviour
     {
         if (clickPos.Equals(transform.position))
         {
+            _audioSource.Play();
             scrollUi.SetActive(true);
             Cursor.visible = false;
         }
