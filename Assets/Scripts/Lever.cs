@@ -7,6 +7,7 @@ public class Lever : MonoBehaviour
     [SerializeField] private bool inverted;
     
     private Animator _anim;
+    private AudioSource _audioSource;
     private bool _state;
     
     public bool State => _state ^ inverted;
@@ -14,6 +15,7 @@ public class Lever : MonoBehaviour
     private void Start()
     {
         _anim = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
         MouseManager.Instance.onClickEnvironment.AddListener(OnClickedEvent);
     }
 
@@ -21,6 +23,7 @@ public class Lever : MonoBehaviour
     {
         if (!point.Equals(transform.position)) return;
 
+        _audioSource.Play();
         _anim.SetBool(LeverUp, _state = !_state);
     }
 }
